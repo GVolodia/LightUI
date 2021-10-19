@@ -51,7 +51,7 @@ struct ContentView: View {
                 
             }, label: {
                 Text(buttonTitle)
-            }).padding(10).background(Color.black).offset(x: 0, y: -30)
+            }).frame(width:50).padding(10).background(Color.black).cornerRadius(6).offset(x: 0, y: -30)
             
         }
         .edgesIgnoringSafeArea(.all)
