@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var isLightOn = true
+    
     var body: some View {
         ZStack {
             isLightOn ? Color.white : Color.black
@@ -16,7 +17,7 @@ struct ContentView: View {
         .edgesIgnoringSafeArea(.all)
         .onTapGesture {
             isLightOn.toggle()
-        }
+        }.statusBar(hidden: true)
     }
 }
 
