@@ -16,20 +16,12 @@ struct ContentView: View {
     
     var body: some View {
         
+        
         ZStack(alignment: .bottom) {
             
             //depending on the value of isLightOn - changes Color
             //value is changed by onTapGuesture
-            switch isLightOn {
-            case 1:
-                Color.red
-            case 2:
-                Color.yellow
-            case 3:
-                Color.green
-            default:
-                Color.red
-            }
+            colorChange()
             
             Button(action: {
                 if ((device?.hasTorch) != nil) {
@@ -56,15 +48,28 @@ struct ContentView: View {
         }
         .edgesIgnoringSafeArea(.all)
         .onTapGesture {
-            changeColor()
+            changeIsLightOn()
         }.statusBar(hidden: true)
     }
     // This func changes a value of var isLightOn
     //and doesn't let it be more than 3
-    func changeColor() {
+    func changeIsLightOn() {
         isLightOn += 1
         if isLightOn > 3 {
             isLightOn = 1
+        }
+    }
+    // according to value of isLightOn returns Color
+    func colorChange() -> Color {
+        switch isLightOn {
+        case 1:
+            return Color.red
+        case 2:
+            return Color.yellow
+        case 3:
+            return Color.green
+        default:
+            return Color.red
         }
     }
 }
